@@ -77,3 +77,9 @@
   outline: none;
   border: thin solid #ddd;
 }
+
+.game-done .message {
+  font-size: 250%;
+  font-weight: bold;
+  margin: 15px;
+}

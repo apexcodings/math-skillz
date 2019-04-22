@@ -3,6 +3,7 @@ import './App.css';
 import Logic from './utils/logic';
 import Balls from './components/Balls';
 import PlayDigit from './components/PlayDigit';
+import PlayAgain from "./components/PlayAgain";
 
 const Game = () => {
   const [balls, setBalls] = useState(Logic.random(1, 9));
@@ -10,6 +11,7 @@ const Game = () => {
   const [candidateDigits, setCandidateDigits] = useState([]);
 
   const candidatesAreWrong = Logic.sum(candidateDigits) > balls;
+  const gameIsDone = availableDigits.length === 0;
 
   const digitStatus = (digit) => {
     if (!availableDigits.includes(digit)) {
@@ -39,12 +41,18 @@ const Game = () => {
     }
   };
 
+  const resetGame = () => {
+    setBalls(Logic.random(1, 9));
+    setAvailableDigits(Logic.range(1, 9));
+    setCandidateDigits([]);
+  };
+
   return (
     <div className="App">
       <div className="header-title">Math Skillz</div>
       <div className="visuals">
         <div className="quiz-card left">
-          <Balls count={balls} />
+          { gameIsDone ? <PlayAgain onClick={resetGame} /> : <Balls count={balls} />}
         </div>
         <div className="quiz-card right">
           {Logic.range(1, 9)
