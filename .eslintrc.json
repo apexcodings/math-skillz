@@ -2,7 +2,8 @@
     "extends": "airbnb",
     "rules": {
         "no-plusplus": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+        "no-nested-ternary": "off"
     },
     "env": {
         "browser": true

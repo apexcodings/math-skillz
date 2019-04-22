@@ -83,3 +83,9 @@
   font-weight: bold;
   margin: 15px;
 }
+
+.timer {
+  color: #666;
+  margin-top: 3px;
+  margin-left: 3px;
+}
