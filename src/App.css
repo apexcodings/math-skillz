@@ -1,22 +1,16 @@
 .App {
+  min-height: 100vh;
+  background-color: #148a51;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10em;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -30,4 +24,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.header-title {
+  color: black;
+  border-radius: 5px;
+  background: white;
+  width: 100%;
+}
+
+.visuals {
+  display: flex;
+  flex-direction: row;
+  border-radius: 50px;
+}
+
+.quiz-card {
+  display: inline-block;
+  width: 50%;
+  /*height: 70%;*/
+}
+
+.ball {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.ball:after {
+  content: "\26bd";
+  font-size: 45px;
+}
+
+.left {
+  background: yellow;
+}
+
+.right {
+  background: cornflowerblue;
+}
+
+.number {
+  background-color: #eee;
+  border: thin solid #ddd;
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  font-size: 25px;
+  border-radius: 50px;
+}
+
+.number:focus, .number:active {
+  outline: none;
+  border: thin solid #ddd;
 }
