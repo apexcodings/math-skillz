@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 import Logic from './utils/logic';
 import Balls from './components/Balls';
 import PlayDigit from './components/PlayDigit';
-import PlayAgain from "./components/PlayAgain";
+import PlayAgain from './components/PlayAgain';
 
-const Game = () => {
+const Game = ({ startNewGame }) => {
   const [balls, setBalls] = useState(Logic.random(1, 9));
   const [availableDigits, setAvailableDigits] = useState(Logic.range(1, 9));
   const [candidateDigits, setCandidateDigits] = useState([]);
@@ -41,18 +42,12 @@ const Game = () => {
     }
   };
 
-  const resetGame = () => {
-    setBalls(Logic.random(1, 9));
-    setAvailableDigits(Logic.range(1, 9));
-    setCandidateDigits([]);
-  };
-
   return (
     <div className="App">
       <div className="header-title">Math Skillz</div>
       <div className="visuals">
         <div className="quiz-card left">
-          { gameIsDone ? <PlayAgain onClick={resetGame} /> : <Balls count={balls} />}
+          { gameIsDone ? <PlayAgain onClick={startNewGame} /> : <Balls count={balls} />}
         </div>
         <div className="quiz-card right">
           {Logic.range(1, 9)
@@ -62,6 +57,10 @@ const Game = () => {
       <div className="header-title">Timer</div>
     </div>
   );
+};
+
+Game.propTypes = {
+  startNewGame: PropTypes.func.isRequired,
 };
 
 export default Game;
